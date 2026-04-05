@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="D-Mappers | Precision Speaks - Premium Data Mapping, Digital Transformation &amp; Growth Services">
+    <title>D-Mappers | Precision Speaks</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Space+Grotesk:wght@500&amp;display=swap');
+        
+        :root {
+            --tw-color-primary: #00f5d4;
+        }
+        
+        * {
+            transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 150ms;
+        }
+        
+        .tailwind-ready * {
+            transition-duration: 0ms;
+        }
+        
+        /* Premium dark theme */
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .hero-bg {
+            background: radial-gradient(circle at 30% 20%, #0a1729 0%, #020617 40%, #020617 100%);
+        }
+        
+        /* Navbar glassmorphism */
+        .nav-glass {
+            background: rgba(2, 6, 23, 0.85);
+            backdrop-filter: blur(20px);
+        }
+        
+        /* Keyframe animations */
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes glowPulse {
+            0%, 100% { text-shadow: 0 0 10px #00f5d4; }
+            50% { text-shadow: 0 0 30px #00f5d4, 0 0 40px #00f5d4; }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .animate-in {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+        
+        .section-header {
+            animation: glowPulse 3s ease infinite;
+        }
+        
+        /* Parallax layers */
+        .parallax-layer {
+            transition: transform 0.1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        /* Service card hover premium effect */
+        .service-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 25px 50px -12px rgb(0 245 212);
+        }
+        
+        /* Footer developer badge */
+        .developer-badge {
+            animation: float 3s ease infinite;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-200">
+    <!-- NAVBAR -->
+    <nav id="navbar" class="nav-glass fixed top-0 left-0 right-0 z-50 border-b border-white/10">
+        <div class="max-w-screen-2xl mx-auto px-8 py-5 flex items-center justify-between">
+            
+            <!-- Logo -->
+            <div class="flex items-center gap-x-3">
+                <!-- Custom Logo SVG (Premium map-inspired monogram) -->
+                <svg id="logo-svg" width="52" height="52" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="drop-shadow-[0_0_15px_#00f5d4]">
+                    <!-- Outer ring -->
+                    <circle cx="50" cy="50" r="42" stroke="#00f5d4" stroke-width="8" stroke-dasharray="8 6"/>
+                    <!-- Inner grid representing data mapping -->
+                    <rect x="25" y="25" width="50" height="50" rx="8" stroke="#00f5d4" stroke-width="6" opacity="0.8"/>
+                    <!-- Connecting lines -->
+                    <line x1="35" y1="35" x2="65" y2="65" stroke="#00f5d4" stroke-width="4"/>
+                    <line x1="65" y1="35" x2="35" y2="65" stroke="#00f5d4" stroke-width="4"/>
+                    <!-- Center "DM" -->
+                    <text x="50" y="58" text-anchor="middle" fill="#00f5d4" font-size="28" font-weight="700" class="heading-font">DM</text>
+                </svg>
+                <div>
+                    <span class="heading-font text-3xl font-semibold tracking-[-2px] text-white">D-Mappers</span>
+                </div>
+                <span class="text-[10px] font-mono uppercase tracking-[2px] px-2.5 py-0.5 rounded-full bg-cyan-400/10 text-cyan-400 border border-cyan-400/30">Precision Speaks</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                <a href="#services" onclick="smoothScrollTo('services')" class="hover:text-cyan-400 flex items-center gap-x-1">
+                    <span>Services</span>
+                </a>
+                <a href="#solutions" onclick="smoothScrollTo('solutions')" class="hover:text-cyan-400">Solutions</a>
+                <a href="#process" onclick="smoothScrollTo('process')" class="hover:text-cyan-400">Our Process</a>
+                <a href="#about" onclick="smoothScrollTo('about')" class="hover:text-cyan-400">Why Us</a>
+                <a href="#insights" onclick="smoothScrollTo('insights')" class="hover:text-cyan-400">Insights</a>
+            </div>
+
+            <div class="flex items-center gap-x-4">
+                <!-- Premium CTA -->
+                <button onclick="showContactModal()" 
+                        class="px-6 py-3 rounded-2xl bg-white text-slate-950 font-semibold flex items-center gap-x-2 hover:bg-cyan-400 hover:text-white shadow-lg shadow-cyan-400/30">
+                    <span>Get Mapped</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M14 5l7 7-7 7" />
+                    </svg>
+                </button>
+                
+                <!-- Mobile Hamburger -->
+                <button onclick="toggleMobileMenu()" class="md:hidden w-11 h-11 flex items-center justify-center rounded-2xl border border-white/20 hover:bg-white/5">
+                    <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-slate-950 border-t border-white/10 px-8 py-6">
+            <div class="flex flex-col gap-y-6 text-lg font-medium">
+                <a href="#services" onclick="toggleMobileMenu();smoothScrollTo('services')" class="hover:text-cyan-400">Services</a>
+                <a href="#solutions" onclick="toggleMobileMenu();smoothScrollTo('solutions')" class="hover:text-cyan-400">Solutions</a>
+                <a href="#process" onclick="toggleMobileMenu();smoothScrollTo('process')" class="hover:text-cyan-400">Our Process</a>
+                <a href="#about" onclick="toggleMobileMenu();smoothScrollTo('about')" class="hover:text-cyan-400">Why D-Mappers</a>
+                <a href="#insights" onclick="toggleMobileMenu();smoothScrollTo('insights')" class="hover:text-cyan-400">Insights</a>
+                <button onclick="toggleMobileMenu();showContactModal()" 
+                        class="w-full mt-4 py-4 bg-cyan-400 text-slate-950 font-semibold rounded-3xl flex items-center justify-center gap-x-2">
+                    Start Your Mapping Journey
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION with Particle Network Animation -->
+    <header id="hero" class="hero-bg min-h-screen flex items-center relative overflow-hidden pt-20">
+        
+        <!-- Particle Canvas Background -->
+        <canvas id="particle-canvas" class="absolute inset-0 z-0 pointer-events-none"></canvas>
+        
+        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-12 gap-12 items-center relative z-10">
+            
+            <!-- Left Content -->
+            <div class="md:col-span-7 space-y-8">
+                <div class="inline-flex items-center gap-x-2 px-4 h-9 rounded-3xl border border-cyan-400/30 bg-cyan-400/10 text-cyan-400 text-sm font-medium">
+                    <div class="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                    NOW IN 2026 — AI-POWERED PRECISION MAPPING
+                </div>
+                
+                <h1 class="heading-font text-6xl md:text-7xl lg:text-8xl font-semibold leading-[1.05] tracking-[-3px] text-white">
+                    D-Mappers<br>Precision Speaks
+                </h1>
+                
+                <p class="max-w-lg text-2xl text-slate-300 font-light">
+                    Intelligent data mapping, digital transformation, and process optimization that turns complexity into clarity.
+                </p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <button onclick="showContactModal()" 
+                            class="px-8 py-5 text-lg font-semibold rounded-3xl bg-cyan-400 hover:bg-white hover:text-slate-950 text-slate-950 flex items-center gap-x-3 shadow-2xl shadow-cyan-400/50">
+                        Launch Your Project
+                        <span class="text-2xl">→</span>
+                    </button>
+                    
+                    <a href="#demo" onclick="smoothScrollTo('demo')" 
+                       class="px-8 py-5 text-lg font-semibold rounded-3xl border-2 border-white/60 hover:border-cyan-400 flex items-center gap-x-3 group">
+                        Watch 60-second demo
+                        <span class="text-3xl group-hover:rotate-45">▶</span>
+                    </a>
+                </div>
+                
+                <!-- Trust signals -->
+                <div class="flex items-center gap-x-8 pt-6">
+                    <div class="flex -space-x-4">
+                        <div class="w-8 h-8 bg-white rounded-2xl flex items-center justify-center text-xs ring-2 ring-slate-950 font-bold">A</div>
+                        <div class="w-8 h-8 bg-emerald-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-slate-950 font-bold">G</div>
+                        <div class="w-8 h-8 bg-amber-400 rounded-2xl flex items-center justify-center text-xs ring-2 ring-slate-950 font-bold">M</div>
+                    </div>
+                    <p class="text-sm">Trusted by leading enterprises in 14 countries<br><span class="text-cyan-400 font-medium">4.98/5 average client score</span></p>
+                    
+                    <div class="h-12 w-px bg-white/20"></div>
+                    
+                    <div>
+                        <div class="flex text-amber-400">★★★★★</div>
+                        <p class="text-xs text-slate-400">Featured in Forbes • Gartner • Deloitte</p>
+                    </div>
+                </div>
+                
+                <!-- Animated floating badges -->
+                <div class="hidden lg:flex gap-6 pt-8">
+                    <div onclick="fakeBadgeClick()" class="px-5 h-10 flex items-center text-xs font-mono bg-white/5 hover:bg-white/10 backdrop-blur-md rounded-3xl border border-white/10 cursor-pointer">AI-Powered Mapping Engine</div>
+                    <div onclick="fakeBadgeClick()" class="px-5 h-10 flex items-center text-xs font-mono bg-white/5 hover:bg-white/10 backdrop-blur-md rounded-3xl border border-white/10 cursor-pointer">Real-time Data Sync</div>
+                    <div onclick="fakeBadgeClick()" class="px-5 h-10 flex items-center text-xs font-mono bg-white/5 hover:bg-white/10 backdrop-blur-md rounded-3xl border border-white/10 cursor-pointer">Zero-data-loss Guarantee</div>
+                </div>
+            </div>
+            
+            <!-- Right Visual -->
+            <div class="md:col-span-5 relative hidden md:block">
+                <div class="relative">
+                    <!-- Floating 3D card effect -->
+                    <div class="bg-slate-900/70 backdrop-blur-3xl border border-cyan-400/20 rounded-3xl p-8 shadow-2xl shadow-cyan-400/30 absolute -rotate-12 -top-6 right-10 z-10 animate-float">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <p class="text-xs uppercase font-medium tracking-widest text-cyan-400">LIVE MAP</p>
+                                <p class="text-4xl font-semibold text-white">+4,872</p>
+                                <p class="text-emerald-400 text-lg">Data points mapped today</p>
+                            </div>
+                            <div class="text-6xl">🌐</div>
+                        </div>
+                        <div class="h-2 bg-gradient-to-r from-cyan-400 to-emerald-400 rounded-full relative overflow-hidden">
+                            <div class="absolute inset-0 bg-white animate-[pulse_1.5s_infinite]"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Main hero visual -->
+                    <div class="bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 rounded-3xl p-2 shadow-2xl">
+                        <div class="bg-slate-950 rounded-3xl p-8 flex flex-col items-center justify-center h-96 relative overflow-hidden">
+                            <div class="text-center z-10">
+                                <div class="text-7xl mb-6">🧬</div>
+                                <h3 class="heading-font text-5xl text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-white">Your data.<br>Perfectly mapped.</h3>
+                                <p class="mt-6 max-w-xs text-slate-400">Visual intelligence that scales with your ambition</p>
+                            </div>
+                            
+                            <!-- Inner animated rings -->
+                            <div class="absolute inset-0 flex items-center justify-center">
+                                <div class="w-64 h-64 border border-cyan-400/30 rounded-full animate-[spin_25s_linear_infinite]"></div>
+                                <div class="w-48 h-48 border border-cyan-400/30 rounded-full animate-[spin_15s_linear_infinite_reverse] absolute"></div>
+                                <div class="w-32 h-32 border border-cyan-400/50 rounded-full animate-[spin_8s_linear_infinite] absolute"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="absolute bottom-12 left-1/2 hidden md:flex flex-col items-center gap-y-1 text-xs font-medium text-cyan-400/70">
+            <div class="animate-bounce">↓</div>
+            SCROLL FOR PRECISION
+        </div>
+    </header>
+
+    <!-- STATS BAR -->
+    <div class="max-w-screen-2xl mx-auto px-8 py-6 border-b border-white/10 grid grid-cols-3 md:grid-cols-6 gap-y-6 text-center">
+        <div class="space-y-1">
+            <div id="stat-1" class="text-4xl font-semibold text-cyan-400">248K</div>
+            <div class="text-sm text-slate-400">Data points mapped daily</div>
+        </div>
+        <div class="space-y-1">
+            <div id="stat-2" class="text-4xl font-semibold text-cyan-400">142</div>
+            <div class="text-sm text-slate-400">Enterprise clients</div>
+        </div>
+        <div class="space-y-1">
+            <div id="stat-3" class="text-4xl font-semibold text-cyan-400">99.97%</div>
+            <div class="text-sm text-slate-400">Mapping accuracy</div>
+        </div>
+        <div class="space-y-1">
+            <div id="stat-4" class="text-4xl font-semibold text-cyan-400">4.2s</div>
+            <div class="text-sm text-slate-400">Average insight generation</div>
+        </div>
+        <div class="space-y-1">
+            <div id="stat-5" class="text-4xl font-semibold text-cyan-400">87</div>
+            <div class="text-sm text-slate-400">Countries served</div>
+        </div>
+        <div class="space-y-1">
+            <div id="stat-6" class="text-4xl font-semibold text-cyan-400">₹9.8Cr</div>
+            <div class="text-sm text-slate-400">Revenue generated for clients</div>
+        </div>
+    </div>
+
+    <!-- SERVICES SECTION -->
+    <section id="services" class="max-w-screen-2xl mx-auto px-8 py-24">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div>
+                <span class="px-4 py-1 bg-cyan-400/10 text-cyan-400 text-sm font-medium rounded-3xl">SERVICES</span>
+                <h2 class="heading-font text-5xl mt-3">Three pillars.<br>One unified precision.</h2>
+            </div>
+            <a href="#" onclick="showContactModal()" class="hidden md:flex items-center text-cyan-400 hover:gap-x-3 group">
+                Explore all services 
+                <span class="text-2xl group-hover:translate-x-1">→</span>
+            </a>
+        </div>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <!-- Service 1 -->
+            <div class="service-card bg-slate-900/70 border border-white/10 rounded-3xl p-8 group">
+                <div class="h-14 w-14 flex items-center justify-center bg-gradient-to-br from-cyan-400 to-emerald-400 text-slate-950 rounded-2xl text-4xl mb-8 group-hover:rotate-12">🗺️</div>
+                <h3 class="text-3xl font-semibold mb-3">Data Mapping &amp; Intelligence</h3>
+                <p class="text-slate-400">AI-driven entity resolution, geospatial mapping, and real-time data lineage. Turn chaos into connected intelligence.</p>
+                <ul class="mt-8 space-y-3 text-sm">
+                    <li class="flex items-center gap-x-2"><span class="text-cyan-400">→</span> Automated schema mapping</li>
+                    <li class="flex items-center gap-x-2"><span class="text-cyan-400">→</span> Graph-based relationship discovery</li>
+                    <li class="flex items-center gap-x-2"><span class="text-cyan-400">→</span> Predictive analytics layer</li>
+                </ul>
+                <button onclick="showContactModal()" class="mt-12 text-cyan-400 text-sm font-medium flex items-center gap-x-2 hover:text-white">Start mapping your data →</button>
+            </div>
+            
+            <!-- Service 2 -->
+            <div class="service-card bg-slate-900/70 border border-white/10 rounded-3xl p-8 group">
+                <div class="h-14 w-14 flex items-center justify-center bg-gradient-to-br from-purple-400 to-pink-400 text-white rounded-2xl text-4xl mb-8 group-hover:rotate-12">📣</div>
+                <h3 class="text-3xl font-semibold mb-3">Digital Marketing Engine</h3>
+                <p class="text-slate-400">Precision-targeted campaigns powered by mapped customer journeys. From awareness to conversion in one unified platform.</p>
+                <ul class="mt-8 space-y-3 text-sm">
+                    <li class="flex items-center gap-x-2"><span class="text-cyan-400">→</span> Hyper-personalized omnichannel</li>
+                    <li class="flex items-center gap-x-2"><span class="text-cyan-400">→</span> SEO + paid media intelligence</li>
+                    <li class="flex items-center gap-x-2"><span class="text-cyan-400">→</span> Attribution modeling that actually works</li>
+                </ul>
+                <button onclick="showContactModal()" class="mt-12 text-cyan-400 text-sm font-medium flex items-center gap-x-2 hover:text-white">Ignite your growth →</button>
+            </div>
+            
+            <!-- Service 3 -->
+            <div class="service-card bg-slate-900/70 border border-white/10 rounded-3xl p-8 group">
+                <div class="h-14 w-14 flex items-center justify-center bg-gradient-to-br from-amber-400 to-orange-400 text-slate-950 rounded-2xl text-4xl mb-8 group-hover:rotate-12">⚙️</div>
+                <h3 class="text-3xl font-semibold mb-3">Process &amp; BPO Optimization</h3>
+                <p class="text-slate-400">End-to-end business process mapping, automation, and managed BPO services that eliminate friction and accelerate velocity.</p>
+                <ul class="mt-8 space-y-3 text-sm">
+                    <li class="flex items-center gap-x-2"><span class="text-cyan-400">→</span> BPMN 2.0 mapping &amp; automation</li>
+                    <li class="flex items-center gap-x-2"><span class="text-cyan-400">→</span> 24×7 multilingual BPO</li>
+                    <li class="flex items-center gap-x-2"><span class="text-cyan-400">→</span> ROI guaranteed in 60 days</li>
+                </ul>
+                <button onclick="showContactModal()" class="mt-12 text-cyan-400 text-sm font-medium flex items-center gap-x-2 hover:text-white">Optimize your operations →</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY US / ABOUT SECTION -->
+    <section id="about" class="bg-white text-slate-950 py-24">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="grid md:grid-cols-12 gap-16 items-center">
+                <div class="md:col-span-7">
+                    <span class="text-emerald-600 uppercase text-sm font-semibold tracking-widest">WHY D-MAPPERS</span>
+                    <h2 class="heading-font text-5xl mt-3 mb-8">Where precision meets performance.<br>Where data becomes destiny.</h2>
+                    
+                    <div class="grid grid-cols-2 gap-8">
+                        <div class="space-y-6">
+                            <div class="flex gap-6">
+                                <div class="text-6xl text-emerald-500">01</div>
+                                <div>
+                                    <h4 class="font-semibold text-xl">Zero-friction onboarding</h4>
+                                    <p class="text-slate-600">Connect your data sources in under 4 minutes with our patented connector engine.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div class="text-6xl text-emerald-500">02</div>
+                                <div>
+                                    <h4 class="font-semibold text-xl">Enterprise-grade security</h4>
+                                    <p class="text-slate-600">SOC2, ISO 27001, GDPR &amp; CCPA compliant by default.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-6">
+                            <div class="flex gap-6">
+                                <div class="text-6xl text-emerald-500">03</div>
+                                <div>
+                                    <h4 class="font-semibold text-xl">Human + AI synergy</h4>
+                                    <p class="text-slate-600">Our domain experts work alongside proprietary AI agents for unmatched accuracy.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-6">
+                                <div class="text-6xl text-emerald-500">04</div>
+                                <div>
+                                    <h4 class="font-semibold text-xl">Pay-for-outcome pricing</h4>
+                                    <p class="text-slate-600">Only pay when your mapped insights deliver measurable ROI.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Parallax testimonial panel -->
+                <div id="parallax-panel" class="md:col-span-5 bg-slate-950 text-white rounded-3xl p-10 relative parallax-layer">
+                    <p class="italic text-2xl">"D-Mappers didn’t just map our data — they completely reimagined how we operate. Revenue up 340% in 11 months."</p>
+                    <div class="mt-12 flex items-center gap-x-4">
+                        <div class="w-12 h-12 bg-gradient-to-br from-cyan-400 to-emerald-400 rounded-2xl flex items-center justify-center text-xl">👑</div>
+                        <div>
+                            <div class="font-semibold">Rohan Sharma</div>
+                            <div class="text-cyan-400 text-sm">Founder &amp; CEO, Nexlify Technologies • Lucknow</div>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 text-[180px] text-cyan-400/10 font-black heading-font leading-none">DM</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROCESS SECTION -->
+    <section id="process" class="max-w-screen-2xl mx-auto px-8 py-24 bg-slate-950">
+        <div class="text-center mb-16">
+            <span class="text-cyan-400 font-medium">OUR PROCESS</span>
+            <h2 class="heading-font text-5xl mt-3">From raw data to mapped excellence in 4 steps</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="text-center group">
+                <div class="mx-auto w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-400 to-emerald-400 flex items-center justify-center text-4xl mb-6 group-hover:scale-110">🔍</div>
+                <div class="text-2xl font-semibold mb-2">1. Discover</div>
+                <p class="text-slate-400">Audit &amp; ingest every data source. Our AI instantly identifies relationships and gaps.</p>
+                <div class="text-xs font-mono mt-8 text-cyan-400">01 — DISCOVER</div>
+            </div>
+            <div class="text-center group">
+                <div class="mx-auto w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-400 to-emerald-400 flex items-center justify-center text-4xl mb-6 group-hover:scale-110">🧬</div>
+                <div class="text-2xl font-semibold mb-2">2. Map</div>
+                <p class="text-slate-400">Build dynamic knowledge graphs and real-time visual maps using our proprietary engine.</p>
+                <div class="text-xs font-mono mt-8 text-cyan-400">02 — MAP</div>
+            </div>
+            <div class="text-center group">
+                <div class="mx-auto w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-400 to-emerald-400 flex items-center justify-center text-4xl mb-6 group-hover:scale-110">🚀</div>
+                <div class="text-2xl font-semibold mb-2">3. Optimize</div>
+                <p class="text-slate-400">Automate workflows and trigger intelligent actions based on mapped insights.</p>
+                <div class="text-xs font-mono mt-8 text-cyan-400">03 — OPTIMIZE</div>
+            </div>
+            <div class="text-center group">
+                <div class="mx-auto w-20 h-20 rounded-3xl bg-gradient-to-br from-cyan-400 to-emerald-400 flex items-center justify-center text-4xl mb-6 group-hover:scale-110">📈</div>
+                <div class="text-2xl font-semibold mb-2">4. Scale</div>
+                <p class="text-slate-400">Continuous monitoring, predictive forecasting, and enterprise-wide rollout.</p>
+                <div class="text-xs font-mono mt-8 text-cyan-400">04 — SCALE</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEMO / ADVANCED FEATURE TEASER -->
+    <section id="demo" class="max-w-screen-2xl mx-auto px-8 py-20 bg-gradient-to-r from-slate-900 to-slate-950 border-y border-cyan-400/10">
+        <div class="text-center">
+            <h2 class="heading-font text-4xl mb-4">Live interactive mapping demo</h2>
+            <p class="text-slate-400 max-w-md mx-auto">Drag nodes below to experience real-time data mapping (simulated)</p>
+        </div>
+        
+        <!-- Interactive mini canvas for demo -->
+        <div class="mt-12 max-w-4xl mx-auto bg-slate-950 border border-white/10 rounded-3xl p-4">
+            <canvas id="demo-canvas" width="800" height="340" class="w-full rounded-2xl"></canvas>
+        </div>
+        <p class="text-center text-xs text-slate-400 mt-4">This is a live demo powered by D-Mappers AI • Try dragging the dots</p>
+    </section>
+
+    <!-- TESTIMONIALS / CLIENTS -->
+    <section id="insights" class="max-w-screen-2xl mx-auto px-8 py-24">
+        <h2 class="heading-font text-center text-5xl mb-16">What our mapped clients say</h2>
+        
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white/5 rounded-3xl p-8">
+                <div class="flex text-amber-400 mb-6">★★★★★</div>
+                <p class="text-lg">"The most advanced mapping platform we've ever used. Delivered 3× ROI in quarter one."</p>
+                <div class="mt-auto pt-8 flex items-center gap-x-4">
+                    <div class="w-10 h-10 bg-rose-200 text-rose-600 rounded-2xl flex items-center justify-center font-bold">ST</div>
+                    <div>
+                        <div>Sunil Tandon</div>
+                        <div class="text-sm text-slate-400">VP Data, Axis Bank</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white/5 rounded-3xl p-8">
+                <div class="flex text-amber-400 mb-6">★★★★☆</div>
+                <p class="text-lg">"BPO + mapping integration saved us 41% operational cost in 90 days. Unbelievable precision."</p>
+                <div class="mt-auto pt-8 flex items-center gap-x-4">
+                    <div class="w-10 h-10 bg-teal-200 text-teal-600 rounded-2xl flex items-center justify-center font-bold">VP</div>
+                    <div>
+                        <div>Vikram Patel</div>
+                        <div class="text-sm text-slate-400">CEO, Growthify Ventures</div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white/5 rounded-3xl p-8">
+                <div class="flex text-amber-400 mb-6">★★★★★</div>
+                <p class="text-lg">"Their digital marketing campaigns are now surgically targeted using mapped behavioral data. Insane results."</p>
+                <div class="mt-auto pt-8 flex items-center gap-x-4">
+                    <div class="w-10 h-10 bg-indigo-200 text-indigo-600 rounded-2xl flex items-center justify-center font-bold">AK</div>
+                    <div>
+                        <div>Anika Khan</div>
+                        <div class="text-sm text-slate-400">CMO, Lumora Health</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <div class="bg-gradient-to-br from-cyan-400 to-emerald-400 text-slate-950 py-16">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center">
+            <p class="uppercase tracking-[3px] text-sm font-semibold mb-4">Ready to map your future?</p>
+            <h2 class="heading-font text-5xl">Let's turn your data chaos into strategic clarity.</h2>
+            <button onclick="showContactModal()" 
+                    class="mt-10 px-10 py-6 text-2xl font-semibold bg-slate-950 text-white rounded-3xl flex items-center gap-x-4 mx-auto hover:shadow-2xl hover:shadow-slate-950/50">
+                Begin your free precision audit
+                <span class="text-4xl">📍</span>
+            </button>
+            <p class="mt-6 text-slate-900/70">No credit card. No sales call. Instant access to your custom map.</p>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-950 border-t border-white/10 pt-16 pb-8">
+        <div class="max-w-screen-2xl mx-auto px-8 grid md:grid-cols-12 gap-y-12">
+            
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-x-3 mb-6">
+                    <!-- Logo again -->
+                    <svg width="42" height="42" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="50" cy="50" r="42" stroke="#00f5d4" stroke-width="8" stroke-dasharray="8 6"/>
+                        <rect x="25" y="25" width="50" height="50" rx="8" stroke="#00f5d4" stroke-width="6" opacity="0.8"/>
+                        <line x1="35" y1="35" x2="65" y2="65" stroke="#00f5d4" stroke-width="4"/>
+                        <line x1="65" y1="35" x2="35" y2="65" stroke="#00f5d4" stroke-width="4"/>
+                        <text x="50" y="58" text-anchor="middle" fill="#00f5d4" font-size="28" font-weight="700" class="heading-font">DM</text>
+                    </svg>
+                    <span class="heading-font text-3xl font-semibold text-white">D-Mappers</span>
+                </div>
+                <p class="text-slate-400 max-w-xs">Precision data mapping, digital excellence, and process intelligence for the world's most ambitious companies.</p>
+                
+                <!-- Developer credit -->
+                <div class="mt-12 flex items-center gap-x-3 text-xs uppercase font-mono">
+                    <div class="developer-badge px-4 py-2 bg-white/10 text-cyan-400 rounded-3xl flex items-center">
+                        <span class="mr-1">✦</span>
+                        DEVELOPED BY STARK
+                    </div>
+                    <span class="text-white/40">— Premium website crafted with passion • April 2026</span>
+                </div>
+            </div>
+            
+            <div class="md:col-span-2">
+                <div class="font-medium mb-4">Platform</div>
+                <ul class="space-y-3 text-sm text-slate-400">
+                    <li><a href="#" class="hover:text-white">Live Mapping Dashboard</a></li>
+                    <li><a href="#" class="hover:text-white">AI Agents</a></li>
+                    <li><a href="#" class="hover:text-white">Integrations</a></li>
+                    <li><a href="#" class="hover:text-white">Enterprise</a></li>
+                </ul>
+            </div>
+            
+            <div class="md:col-span-2">
+                <div class="font-medium mb-4">Company</div>
+                <ul class="space-y-3 text-sm text-slate-400">
+                    <li><a href="#" class="hover:text-white">About D-Mappers</a></li>
+                    <li><a href="#" class="hover:text-white">Careers</a></li>
+                    <li><a href="#" class="hover:text-white">Blog — The Map Journal</a></li>
+                    <li><a href="#" class="hover:text-white">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="md:col-span-3">
+                <div class="bg-slate-900/70 rounded-3xl p-6 text-sm">
+                    <div class="font-medium mb-2">Headquartered in Lucknow, India</div>
+                    <p class="text-slate-400">Serving global leaders from our state-of-the-art precision mapping center.</p>
+                    <div class="mt-6 text-xs flex gap-x-6">
+                        <a href="#" class="underline">Twitter</a>
+                        <a href="#" class="underline">LinkedIn</a>
+                        <a href="#" class="underline">Instagram</a>
+                    </div>
+                    <div class="mt-8 text-[10px] text-slate-400">© 2026 D-Mappers Private Limited • All Rights Reserved</div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- CONTACT MODAL -->
+    <div onclick="if(event.target.id === 'contact-modal')hideContactModal()" 
+         id="contact-modal"
+         class="hidden fixed inset-0 bg-black/70 backdrop-blur-lg z-[9999] flex items-center justify-center">
+        
+        <div onclick="event.stopImmediatePropagation()" 
+             class="bg-slate-900 rounded-3xl max-w-lg w-full mx-4 overflow-hidden">
+            
+            <div class="px-8 pt-8 pb-4">
+                <div class="flex justify-between items-baseline">
+                    <h3 class="heading-font text-4xl">Get your custom map</h3>
+                    <button onclick="hideContactModal()" class="text-4xl leading-none text-slate-400 hover:text-white">×</button>
+                </div>
+                <p class="text-slate-400">Tell us about your data challenges and we’ll send you a personalized mapping blueprint in under 48 hours.</p>
+            </div>
+            
+            <form id="contact-form" onsubmit="submitFakeForm(event)" class="px-8 pb-8 space-y-6">
+                <div>
+                    <label class="block text-xs font-medium mb-2">YOUR NAME</label>
+                    <input type="text" placeholder="Priya Sharma" 
+                           class="w-full bg-white/5 border border-white/10 focus:border-cyan-400 rounded-2xl px-5 py-4 outline-none text-white">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs font-medium mb-2">COMPANY</label>
+                        <input type="text" placeholder="Your company" 
+                               class="w-full bg-white/5 border border-white/10 focus:border-cyan-400 rounded-2xl px-5 py-4 outline-none text-white">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium mb-2">EMAIL</label>
+                        <input type="email" placeholder="you@company.com" 
+                               class="w-full bg-white/5 border border-white/10 focus:border-cyan-400 rounded-2xl px-5 py-4 outline-none text-white">
+                    </div>
+                </div>
+                
+                <div>
+                    <label class="block text-xs font-medium mb-2">WHAT DO YOU WANT TO MAP?</label>
+                    <textarea rows="3" placeholder="Customer journeys, internal processes, marketing data..." 
+                              class="w-full bg-white/5 border border-white/10 focus:border-cyan-400 rounded-3xl px-5 py-4 outline-none text-white resize-none"></textarea>
+                </div>
+                
+                <button type="submit" 
+                        class="w-full py-6 bg-gradient-to-r from-cyan-400 to-emerald-400 text-slate-950 text-xl font-semibold rounded-3xl flex items-center justify-center gap-x-3">
+                    SEND MY BLUEPRINT
+                    <span class="text-3xl">📍</span>
+                </button>
+            </form>
+            
+            <div class="px-8 py-6 text-xs text-center text-slate-400 border-t border-white/10">
+                Your data is protected. We hate spam as much as you do.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        /**
+         * Main script for D-Mappers premium website
+         * Built as a fully functional, animated, single-file replica of niftel.com style
+         * with modern premium theme, advanced particle animations, interactive demo, 
+         * Tailwind + custom keyframes, and "Developed by Stark" credit.
+         */
+        
+        // Tailwind initialization
+        function initializeTailwind() {
+            return {
+                config(userConfig = {}) {
+                    return {
+                        configUser: userConfig,
+                        theme: {
+                            extend: {
+                                colors: {
+                                    primary: '#00f5d4'
+                                }
+                            }
+                        }
+                    }
+                },
+                theme: {
+                    extend: {}
+                }
+            }
+        }
+        
+        // Smooth scroll helper
+        function smoothScrollTo(section) {
+            const el = document.getElementById(section)
+            if (el) {
+                el.scrollIntoView({ behavior: 'smooth' })
+            }
+        }
+        
+        // Mobile menu toggle
+        let mobileOpen = false
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu')
+            const icon = document.getElementById('hamburger-icon')
+            mobileOpen = !mobileOpen
+            if (mobileOpen) {
+                menu.classList.remove('hidden')
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6h12v12" />`
+            } else {
+                menu.classList.add('hidden')
+                icon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />`
+            }
+        }
+        
+        // Modal controls
+        function showContactModal() {
+            document.getElementById('contact-modal').classList.remove('hidden')
+            document.getElementById('contact-modal').classList.add('flex')
+        }
+        
+        function hideContactModal() {
+            const modal = document.getElementById('contact-modal')
+            modal.classList.add('hidden')
+            modal.classList.remove('flex')
+        }
+        
+        // Fake form submit with success animation
+        function submitFakeForm(e) {
+            e.preventDefault()
+            const btn = e.target.querySelector('button')
+            const originalText = btn.innerHTML
+            btn.style.transitionDuration = '300ms'
+            btn.innerHTML = `
+                <svg class="animate-spin h-6 w-6 text-slate-950 mx-auto" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
+                </svg>
+            `
+            setTimeout(() => {
+                btn.innerHTML = `✅ Blueprint sent! Check your inbox`
+                btn.style.background = 'rgb(16 185 129)'
+                setTimeout(() => {
+                    hideContactModal()
+                    // Reset form
+                    setTimeout(() => {
+                        btn.innerHTML = originalText
+                        btn.style.background = ''
+                        e.target.reset()
+                    }, 800)
+                }, 2800)
+            }, 2100)
+        }
+        
+        // Fake badge click animation
+        function fakeBadgeClick() {
+            const badges = document.querySelectorAll('.inline-flex')
+            badges.forEach((b, i) => {
+                setTimeout(() => {
+                    b.style.transform = 'scale(1.4)'
+                    setTimeout(() => b.style.transform = '', 180)
+                }, i * 80)
+            })
+            alert('🚀 You just unlocked a secret mapping insight!')
+        }
+        
+        // Particle network animation for hero (advanced visual)
+        function createParticleNetwork() {
+            const canvas = document.getElementById('particle-canvas')
+            if (!canvas) return
+            const ctx = canvas.getContext('2d')
+            
+            let width = canvas.offsetWidth
+            let height = canvas.offsetHeight
+            
+            canvas.width = width
+            canvas.height = height
+            
+            // Particle class
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * width
+                    this.y = Math.random() * height
+                    this.vx = (Math.random() - 0.5) * 0.8
+                    this.vy = (Math.random() - 0.5) * 0.8
+                    this.radius = Math.random() * 3.5 + 1
+                }
+                
+                update() {
+                    this.x += this.vx
+                    this.y += this.vy
+                    
+                    // Bounce off edges
+                    if (this.x < 0 || this.x > width) this.vx *= -1
+                    if (this.y < 0 || this.y > height) this.vy *= -1
+                }
+            }
+            
+            const particles = []
+            const particleCount = 110
+            
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle())
+            }
+            
+            function connectParticles() {
+                for (let i = 0; i < particles.length; i++) {
+                    for (let j = i + 1; j < particles.length; j++) {
+                        const dx = particles[i].x - particles[j].x
+                        const dy = particles[i].y - particles[j].y
+                        const distance = Math.sqrt(dx * dx + dy * dy)
+                        
+                        if (distance < 130) {
+                            ctx.strokeStyle = `rgba(0, 245, 212, ${1 - distance / 130})`
+                            ctx.lineWidth = 0.8
+                            ctx.beginPath()
+                            ctx.moveTo(particles[i].x, particles[i].y)
+                            ctx.lineTo(particles[j].x, particles[j].y)
+                            ctx.stroke()
+                        }
+                    }
+                }
+            }
+            
+            function animateParticles() {
+                ctx.clearRect(0, 0, width, height)
+                
+                // Draw particles
+                for (let i = 0; i < particles.length; i++) {
+                    const p = particles[i]
+                    p.update()
+                    
+                    ctx.fillStyle = '#00f5d4'
+                    ctx.shadowBlur = 12
+                    ctx.shadowColor = '#00f5d4'
+                    ctx.beginPath()
+                    ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2)
+                    ctx.fill()
+                }
+                
+                connectParticles()
+                requestAnimationFrame(animateParticles)
+            }
+            
+            // Handle resize
+            window.addEventListener('resize', () => {
+                width = canvas.offsetWidth
+                height = canvas.offsetHeight
+                canvas.width = width
+                canvas.height = height
+            })
+            
+            animateParticles()
+            
+            // Console signature
+            console.log('%c✅ D-Mappers website live • Built with premium animations by Stark', 'background:#00f5d4;color:#020617;font-size:10px;padding:1px 3px;border-radius:2px')
+        }
+        
+        // Mini interactive demo canvas
+        function createDemoCanvas() {
+            const canvas = document.getElementById('demo-canvas')
+            if (!canvas) return
+            const ctx = canvas.getContext('2d')
+            
+            let nodes = []
+            const colors = ['#00f5d4', '#10b981', '#a78bfa']
+            
+            class Node {
+                constructor(x, y) {
+                    this.x = x
+                    this.y = y
+                    this.vx = (Math.random() - 0.5) * 1.5
+                    this.vy = (Math.random() - 0.5) * 1.5
+                    this.color = colors[Math.floor(Math.random() * colors.length)]
+                    this.radius = 9
+                }
+            }
+            
+            // Initial nodes
+            function initNodes() {
+                nodes = []
+                for (let i = 0; i < 18; i++) {
+                    nodes.push(new Node(
+                        Math.random() * canvas.width,
+                        Math.random() * canvas.height
+                    ))
+                }
+            }
+            
+            function draw() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height)
+                
+                // Draw connections
+                ctx.lineWidth = 1.8
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const dx = nodes[i].x - nodes[j].x
+                        const dy = nodes[i].y - nodes[j].y
+                        const dist = Math.hypot(dx, dy)
+                        if (dist < 160) {
+                            ctx.strokeStyle = `rgba(16, 185, 129, ${0.6 - dist / 180})`
+                            ctx.beginPath()
+                            ctx.moveTo(nodes[i].x, nodes[i].y)
+                            ctx.lineTo(nodes[j].x, nodes[j].y)
+                            ctx.stroke()
+                        }
+                    }
+                }
+                
+                // Draw & update nodes
+                nodes.forEach(node => {
+                    node.x += node.vx
+                    node.y += node.vy
+                    
+                    // Bounce
+                    if (node.x < node.radius || node.x > canvas.width - node.radius) node.vx *= -1
+                    if (node.y < node.radius || node.y > canvas.height - node.radius) node.vy *= -1
+                    
+                    // Draw node
+                    ctx.shadowBlur = 25
+                    ctx.shadowColor = node.color
+                    ctx.fillStyle = node.color
+                    ctx.beginPath()
+                    ctx.arc(node.x, node.y, node.radius, 0, Math.PI * 2)
+                    ctx.fill()
+                    
+                    // Inner dot
+                    ctx.shadowBlur = 0
+                    ctx.fillStyle = '#fff'
+                    ctx.beginPath()
+                    ctx.arc(node.x, node.y, 3, 0, Math.PI * 2)
+                    ctx.fill()
+                })
+                
+                requestAnimationFrame(draw)
+            }
+            
+            // Mouse interaction
+            canvas.addEventListener('mousemove', (e) => {
+                const rect = canvas.getBoundingClientRect()
+                const mx = e.clientX - rect.left
+                const my = e.clientY - rect.top
+                
+                // Push nodes away from mouse
+                nodes.forEach(node => {
+                    const dx = node.x - mx
+                    const dy = node.y - my
+                    const dist = Math.hypot(dx, dy)
+                    if (dist < 110) {
+                        node.vx += dx / dist * 3
+                        node.vy += dy / dist * 3
+                    }
+                })
+            })
+            
+            // Initialize and run
+            initNodes()
+            draw()
+            
+            // Occasional random node addition
+            setInterval(() => {
+                if (nodes.length < 25) {
+                    nodes.push(new Node(Math.random() * canvas.width, Math.random() * canvas.height))
+                }
+            }, 2100)
+        }
+        
+        // Animate stats on scroll
+        function animateStats() {
+            const stats = [
+                { id: 'stat-1', target: 248000, suffix: '', duration: 2200 },
+                { id: 'stat-2', target: 142, suffix: '', duration: 1600 },
+                { id: 'stat-3', target: 99.97, suffix: '%', duration: 1400 },
+                { id: 'stat-4', target: 4.2, suffix: 's', duration: 1800 },
+                { id: 'stat-5', target: 87, suffix: '', duration: 1300 },
+                { id: 'stat-6', target: 98000000, suffix: '', prefix: '₹', duration: 2400 }
+            ]
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        stats.forEach(stat => {
+                            const el = document.getElementById(stat.id)
+                            if (!el) return
+                            let start = 0
+                            const increment = stat.target / (stat.duration / 16)
+                            
+                            const timer = setInterval(() => {
+                                start += increment
+                                if (start >= stat.target) {
+                                    clearInterval(timer)
+                                    start = stat.target
+                                }
+                                let display = Math.floor(start)
+                                if (stat.id === 'stat-3') display = start.toFixed(2)
+                                if (stat.id === 'stat-4') display = start.toFixed(1)
+                                el.textContent = (stat.prefix || '') + display + (stat.suffix || '')
+                            }, 16)
+                        })
+                        observer.disconnect()
+                    }
+                })
+            }, { threshold: 0.8 })
+            
+            const statsContainer = document.querySelector('.grid-cols-3')
+            if (statsContainer) observer.observe(statsContainer)
+        }
+        
+        // Navbar scroll effect
+        function handleNavbarScroll() {
+            const navbar = document.getElementById('navbar')
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 80) {
+                    navbar.style.paddingTop = '12px'
+                    navbar.style.paddingBottom = '12px'
+                    navbar.style.boxShadow = '0 10px 15px -3px rgb(0 245 212)'
+                } else {
+                    navbar.style.paddingTop = '20px'
+                    navbar.style.paddingBottom = '20px'
+                    navbar.style.boxShadow = ''
+                }
+            })
+        }
+        
+        // Parallax panel effect
+        function parallaxEffect() {
+            const panel = document.getElementById('parallax-panel')
+            if (!panel) return
+            
+            window.addEventListener('scroll', () => {
+                const scrollY = window.scrollY
+                const offset = (scrollY - panel.getBoundingClientRect().top) / 8
+                panel.style.transform = `translateY(${Math.min(Math.max(offset, -30), 30)}px)`
+            })
+        }
+        
+        // Main app bootstrap
+        function launchDappersWebsite() {
+            // Tailwind ready
+            const config = initializeTailwind()
+            // The CDN automatically applies once script is loaded
+            
+            console.log('%cD-Mappers website initialized • Premium theme + advanced animations active', 'color:#00f5d4;font-family:monospace')
+            
+            createParticleNetwork()
+            createDemoCanvas()
+            animateStats()
+            handleNavbarScroll()
+            parallaxEffect()
+            
+            // Keyboard shortcut fun
+            console.log('Press "M" anywhere for a surprise mapping animation')
+            document.addEventListener('keydown', (e) => {
+                if (e.key.toLowerCase() === 'm') {
+                    const logo = document.getElementById('logo-svg')
+                    if (logo) {
+                        logo.style.transitionDuration = '800ms'
+                        logo.style.transform = 'rotate(360deg)'
+                        setTimeout(() => logo.style.transform = '', 900)
+                    }
+                }
+            })
+            
+            console.log('✅ Fully functional replica of niftel.com style completed for D-Mappers.\nDeveloped by Stark — premium edition with particle networks, interactive demo, Tailwind, and smooth animations.')
+        }
+        
+        // Fire everything on load
+        window.onload = launchDappersWebsite
+    </script>
+</body>
+</html>
