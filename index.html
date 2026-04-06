@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D-Mappers • Lucknow's Premier Fine Dining</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&amp;family=Inter:wght@400;500;600&amp;display=swap');
+        
+        :root {
+            --primary: #0f766e;   /* Deep Teal */
+            --accent: #d97706;    /* Warm Gold */
+        }
+        
+        body {
+            font-family: 'Inter', system_ui, sans-serif;
+        }
+        
+        .heading-font {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(rgba(15, 118, 110, 0.75), rgba(15, 118, 110, 0.85)), 
+                        url('https://picsum.photos/id/1015/2000/1200');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .nav-glass {
+            background: rgba(255,255,255,0.96);
+            backdrop-filter: blur(20px);
+        }
+
+        .dish-card {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .dish-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 40px -15px rgb(15 118 110);
+        }
+
+        .modal {
+            animation: modalPop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        @keyframes modalPop {
+            0% { transform: scale(0.95); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .float {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-[#f8f1e3] text-zinc-800">
+
+    <!-- NAVBAR -->
+    <nav class="nav-glass fixed top-0 left-0 right-0 z-50 border-b border-zinc-200">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-3">
+                <div class="w-11 h-11 bg-[#0f766e] rounded-2xl flex items-center justify-center text-white text-3xl font-bold heading-font shadow-inner">D</div>
+                <div>
+                    <span class="heading-font text-3xl font-semibold tracking-tight text-[#0f766e]">D-Mappers</span>
+                    <p class="text-xs font-medium text-amber-700 -mt-1">LUCKNOW • FINE DINING</p>
+                </div>
+            </div>
+
+            <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                <a href="#menu" onclick="smoothScrollTo('menu')" class="hover:text-[#0f766e]">Menu</a>
+                <a href="#chef" onclick="smoothScrollTo('chef')" class="hover:text-[#0f766e]">The Chef</a>
+                <a href="#best" onclick="smoothScrollTo('best')" class="hover:text-[#0f766e]">Signature Dish</a>
+                <a href="#offers" onclick="smoothScrollTo('offers')" class="hover:text-[#0f766e]">Weekend Offers</a>
+                <a href="#experiences" onclick="smoothScrollTo('experiences')" class="hover:text-[#0f766e]">Experiences</a>
+                <a href="#reserve" onclick="smoothScrollTo('reserve')" class="hover:text-[#0f766e]">Reserve</a>
+            </div>
+
+            <div class="flex items-center gap-x-4">
+                <button onclick="showReservationModal()" 
+                        class="bg-[#0f766e] hover:bg-[#0c5c56] text-white px-8 py-3 rounded-3xl font-semibold flex items-center gap-x-2 text-sm">
+                    Reserve Table
+                    <span class="text-xl">📍</span>
+                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-3xl text-zinc-700">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <header id="hero" class="hero-bg h-screen flex items-center text-white relative">
+        <div class="max-w-7xl mx-auto px-6 pt-20">
+            <div class="max-w-2xl">
+                <div class="inline-flex bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl text-sm mb-8 border border-white/30">
+                    ★★★★☆ • 4.98 on Google • Open Tonight
+                </div>
+                <h1 class="heading-font text-7xl leading-none font-medium tracking-tighter">
+                    D-Mappers
+                </h1>
+                <p class="text-4xl text-amber-200 mt-3">Where Heritage Meets Elegance</p>
+                <p class="mt-8 text-xl max-w-md">Lucknow's most exclusive fine-dining destination. Every plate is a masterpiece.</p>
+                
+                <div class="mt-12 flex gap-4">
+                    <button onclick="showReservationModal()" 
+                            class="bg-white text-[#0f766e] px-10 py-5 rounded-3xl font-semibold text-lg flex items-center gap-x-3 hover:bg-amber-100">
+                        Book Your Table
+                    </button>
+                    <a href="#menu" onclick="smoothScrollTo('menu')" 
+                       class="border-2 border-white/70 px-10 py-5 rounded-3xl font-medium text-lg flex items-center hover:bg-white/10">
+                        Explore Menu →
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-12 right-12 text-8xl float">🍽️</div>
+        <div class="absolute top-1/3 left-12 text-7xl float" style="animation-delay: 1.8s;">🥂</div>
+    </header>
+
+    <!-- SIGNATURE / BEST DISH -->
+    <section id="best" class="max-w-7xl mx-auto px-6 py-20 bg-white">
+        <div class="flex flex-col md:flex-row gap-12 items-center">
+            <div class="md:w-1/2">
+                <span class="px-4 py-1 bg-amber-100 text-amber-700 text-xs font-semibold rounded-3xl">MOST DEMANDED • SIGNATURE</span>
+                <h2 class="heading-font text-5xl mt-4">Wagyu Butter Chicken</h2>
+                <p class="text-xl text-zinc-600 mt-6">Our most requested dish. Japanese Wagyu slow-cooked in a velvety Lucknowi butter gravy with aromatic spices. Finished with gold leaf and served with saffron rice.</p>
+                <div class="mt-8 flex items-center gap-x-8">
+                    <div class="text-4xl font-semibold text-[#0f766e]">₹2,490</div>
+                    <button onclick="showDishModal(1)" 
+                            class="bg-[#0f766e] text-white px-8 py-4 rounded-3xl flex items-center gap-x-2">View Full Details →</button>
+                </div>
+                <p class="mt-6 text-sm text-zinc-500">⭐️ Featured in Michelin Guide 2026 • 98% of guests reorder</p>
+            </div>
+            <div class="md:w-1/2">
+                <div class="bg-[url('https://picsum.photos/id/431/800/600')] bg-cover h-96 rounded-3xl shadow-2xl"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU SECTION with Dish Cards -->
+    <section id="menu" class="bg-[#f8f1e3] py-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl text-center mb-4">Signature Menu</h2>
+            <p class="text-center text-zinc-600">9-course tasting available • ₹8,900 per person</p>
+
+            <div class="grid md:grid-cols-3 gap-8 mt-16">
+                <!-- Dish 1 -->
+                <div onclick="showDishModal(1)" class="dish-card bg-white rounded-3xl overflow-hidden cursor-pointer border border-zinc-100">
+                    <div class="h-64 bg-[url('https://picsum.photos/id/431/800/600')] bg-cover"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-2xl">Wagyu Butter Chicken</h3>
+                            <span class="font-medium text-[#0f766e]">₹2,490</span>
+                        </div>
+                        <p class="text-zinc-600 text-sm mt-2">Most demanded dish • Japanese Wagyu in Lucknowi gravy</p>
+                    </div>
+                </div>
+
+                <!-- Dish 2 -->
+                <div onclick="showDishModal(2)" class="dish-card bg-white rounded-3xl overflow-hidden cursor-pointer border border-zinc-100">
+                    <div class="h-64 bg-[url('https://picsum.photos/id/292/800/600')] bg-cover"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-2xl">Truffle Butter Naan</h3>
+                            <span class="font-medium text-[#0f766e]">₹890</span>
+                        </div>
+                        <p class="text-zinc-600 text-sm mt-2">Fresh naan with aged truffle butter &amp; gold leaf</p>
+                    </div>
+                </div>
+
+                <!-- Dish 3 -->
+                <div onclick="showDishModal(3)" class="dish-card bg-white rounded-3xl overflow-hidden cursor-pointer border border-zinc-100">
+                    <div class="h-64 bg-[url('https://picsum.photos/id/870/800/600')] bg-cover"></div>
+                    <div class="p-6">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-2xl">Saffron Rose Panna Cotta</h3>
+                            <span class="font-medium text-[#0f766e]">₹690</span>
+                        </div>
+                        <p class="text-zinc-600 text-sm mt-2">Kashmiri saffron meets Italian elegance</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT THE CHEF -->
+    <section id="chef" class="max-w-7xl mx-auto px-6 py-20 bg-white">
+        <div class="grid md:grid-cols-12 gap-16 items-center">
+            <div class="md:col-span-5">
+                <div class="bg-[url('https://picsum.photos/id/1005/800/900')] bg-cover h-[520px] rounded-3xl"></div>
+            </div>
+            <div class="md:col-span-7">
+                <span class="text-[#0f766e] font-semibold">MEET THE VISIONARY</span>
+                <h2 class="heading-font text-5xl mt-4">Chef Arjun Rao</h2>
+                <p class="text-2xl text-zinc-600 mt-6">Executive Chef &amp; Founder</p>
+                <p class="mt-8 leading-relaxed text-lg text-zinc-600">
+                    With over 18 years of experience across Michelin-starred kitchens in Paris, Tokyo, and Delhi, Chef Arjun brings global finesse to Lucknow’s rich Awadhi heritage. 
+                    His philosophy: “Map every flavor with precision, serve every guest with passion.”
+                </p>
+                <div class="mt-12 grid grid-cols-3 gap-6 text-center">
+                    <div>
+                        <div class="text-4xl font-semibold text-[#0f766e]">18</div>
+                        <div class="text-sm font-medium">Years of excellence</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-semibold text-[#0f766e]">4</div>
+                        <div class="text-sm font-medium">Michelin stars earned</div>
+                    </div>
+                    <div>
+                        <div class="text-4xl font-semibold text-[#0f766e]">22</div>
+                        <div class="text-sm font-medium">Signature creations</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WEEKEND OFFERS -->
+    <section id="offers" class="py-20 bg-[#0f766e] text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="heading-font text-5xl text-center text-amber-200 mb-4">Weekend Indulgence Offers</h2>
+            <p class="text-center text-amber-100">Valid Friday, Saturday &amp; Sunday evenings only</p>
+            
+            <div class="grid md:grid-cols-3 gap-8 mt-16">
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 text-center border border-white/20">
+                    <div class="text-4xl mb-4">🍷</div>
+                    <h3 class="font-semibold text-2xl">Free Wine Pairing</h3>
+                    <p class="mt-4">Book any 9-course tasting menu and receive a complimentary 3-glass wine pairing (worth ₹3,500)</p>
+                    <div class="mt-8 text-amber-200 font-medium">Use code: WEEKENDWINE</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 text-center border border-white/20">
+                    <div class="text-4xl mb-4">🎟️</div>
+                    <h3 class="font-semibold text-2xl">20% Off Chef’s Table</h3>
+                    <p class="mt-4">Limited to 8 guests. Includes live cooking demonstration and personalised menu curation.</p>
+                    <div class="mt-8 text-amber-200 font-medium">Sat &amp; Sun only • Book early</div>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-8 text-center border border-white/20">
+                    <div class="text-4xl mb-4">🌹</div>
+                    <h3 class="font-semibold text-2xl">Romantic Couple Deal</h3>
+                    <p class="mt-4">₹12,900 for two – 7-course menu + one bottle of sparkling wine + rose petals on table</p>
+                    <div class="mt-8 text-amber-200 font-medium">Perfect for anniversaries &amp; dates</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EXPERIENCES -->
+    <section id="experiences" class="max-w-7xl mx-auto px-6 py-20">
+        <h2 class="heading-font text-5xl text-center mb-16">Signature Experiences</h2>
+        <div class="grid md:grid-cols-4 gap-8">
+            <div class="bg-white rounded-3xl p-8 dish-card">
+                <div class="text-6xl mb-6">👨‍🍳</div>
+                <h3 class="text-2xl font-semibold">Chef’s Table</h3>
+                <p class="text-zinc-600 mt-4">Intimate 10-course journey with Chef Arjun. Live explanations and wine pairings.</p>
+                <div class="mt-8 text-[#0f766e] font-medium">₹15,000 • 8 guests max</div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 dish-card">
+                <div class="text-6xl mb-6">🌿</div>
+                <h3 class="text-2xl font-semibold">Garden Terrace</h3>
+                <p class="text-zinc-600 mt-4">Open-air dining with live music and Lucknow’s night sky as your backdrop.</p>
+                <div class="mt-8 text-[#0f766e] font-medium">Fri &amp; Sat • 8 PM onwards</div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 dish-card">
+                <div class="text-6xl mb-6">🍷</div>
+                <h3 class="text-2xl font-semibold">Wine Cellar Dinner</h3>
+                <p class="text-zinc-600 mt-4">Exclusive pairing of 6 international wines with curated Indian fusion plates.</p>
+                <div class="mt-8 text-[#0f766e] font-medium">₹9,800 for two</div>
+            </div>
+            <div class="bg-white rounded-3xl p-8 dish-card">
+                <div class="text-6xl mb-6">📍</div>
+                <h3 class="text-2xl font-semibold">Private Mapping Dinner</h3>
+                <p class="text-zinc-600 mt-4">Personalised 8-course menu based on your flavour preference quiz.</p>
+                <div class="mt-8 text-[#0f766e] font-medium">Ideal for corporate or celebrations</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RESERVE SECTION -->
+    <section id="reserve" class="bg-[#0f766e] text-white py-20 text-center">
+        <div class="max-w-2xl mx-auto px-6">
+            <h2 class="heading-font text-5xl">Your Table Awaits</h2>
+            <p class="mt-6 text-amber-100 text-xl">Same-day reservations available. Book now for an unforgettable evening.</p>
+            <button onclick="showReservationModal()" 
+                    class="mt-12 bg-white text-[#0f766e] px-16 py-7 text-2xl font-semibold rounded-3xl hover:bg-amber-100">
+                Reserve for Tonight
+            </button>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-white py-16 border-t">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-12 gap-y-12">
+            <div class="md:col-span-5">
+                <div class="flex items-center gap-x-3">
+                    <div class="w-10 h-10 bg-[#0f766e] rounded-2xl flex items-center justify-center text-white text-3xl font-bold heading-font">D</div>
+                    <span class="heading-font text-3xl font-semibold text-[#0f766e]">D-Mappers</span>
+                </div>
+                <p class="mt-6 text-zinc-600">2nd Floor, Riverside Mall, Gomti Nagar, Lucknow</p>
+                <div class="mt-12 text-xs flex items-center gap-x-2 text-zinc-400">
+                    <span>✦</span> DEVELOPED BY STARK
+                </div>
+            </div>
+            
+            <div class="md:col-span-2 text-sm space-y-2">
+                <div class="font-semibold mb-4">Quick Links</div>
+                <a href="#menu" onclick="smoothScrollTo('menu')" class="block hover:text-[#0f766e]">Menu</a>
+                <a href="#chef" onclick="smoothScrollTo('chef')" class="block hover:text-[#0f766e]">Chef Arjun Rao</a>
+                <a href="#offers" onclick="smoothScrollTo('offers')" class="block hover:text-[#0f766e]">Weekend Offers</a>
+            </div>
+            
+            <div class="md:col-span-2 text-sm space-y-2">
+                <div class="font-semibold mb-4">Contact</div>
+                <p>+91 522 555 0192</p>
+                <p>hello@dmappers.in</p>
+            </div>
+            
+            <div class="md:col-span-3 text-sm">
+                <div class="font-semibold mb-4">Hours</div>
+                <p>Tue–Sun: 7:00 PM – 11:30 PM</p>
+                <p class="text-amber-700">Closed Mondays</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- DISH DETAIL MODAL -->
+    <div id="dish-modal" onclick="if(event.target.id==='dish-modal')hideDishModal()" 
+         class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="modal bg-white max-w-2xl w-full mx-4 rounded-3xl overflow-hidden">
+            <div id="modal-content" class="p-8"></div>
+        </div>
+    </div>
+
+    <!-- RESERVATION MODAL -->
+    <div id="reserve-modal" onclick="if(event.target.id==='reserve-modal')hideReservationModal()" 
+         class="hidden fixed inset-0 bg-black/70 flex items-center justify-center z-[9999]">
+        <div onclick="event.stopImmediatePropagation()" 
+             class="modal bg-white max-w-md w-full mx-4 rounded-3xl shadow-2xl">
+            <div class="px-8 pt-8 pb-6">
+                <h3 class="heading-font text-4xl">Reserve Your Table</h3>
+            </div>
+            <form onsubmit="submitFakeReservation(event)" class="px-8 pb-8 space-y-6">
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="text-xs font-medium text-zinc-500">DATE</label>
+                        <input type="text" value="06 April 2026" class="w-full border border-zinc-300 rounded-2xl px-5 py-4">
+                    </div>
+                    <div>
+                        <label class="text-xs font-medium text-zinc-500">TIME</label>
+                        <select class="w-full border border-zinc-300 rounded-2xl px-5 py-4">
+                            <option>7:30 PM</option>
+                            <option>8:00 PM</option>
+                            <option>8:30 PM</option>
+                        </select>
+                    </div>
+                </div>
+                <select class="w-full border border-zinc-300 rounded-2xl px-5 py-4">
+                    <option>2 Guests</option>
+                    <option>4 Guests</option>
+                    <option>6 Guests</option>
+                </select>
+                <input type="text" placeholder="Your Name" class="w-full border border-zinc-300 rounded-2xl px-5 py-4" required>
+                <button type="submit" class="w-full py-6 bg-[#0f766e] text-white rounded-3xl text-xl font-semibold">Confirm Reservation</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function smoothScrollTo(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' })
+        }
+
+        function toggleMobileMenu() {
+            alert("📱 Mobile menu active in full version.\n\nTry the Reserve button above!")
+        }
+
+        // Dish modal content
+        function showDishModal(id) {
+            const modal = document.getElementById('dish-modal')
+            const content = document.getElementById('modal-content')
+            
+            let html = ''
+            
+            if (id === 1) {
+                html = `
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="heading-font text-4xl">Wagyu Butter Chicken</h3>
+                        <p class="text-amber-600 font-medium">Signature • Most Demanded</p>
+                    </div>
+                    <button onclick="hideDishModal()" class="text-4xl leading-none text-zinc-400 hover:text-black">×</button>
+                </div>
+                <div class="mt-8 bg-[url('https://picsum.photos/id/431/800/600')] bg-cover h-72 rounded-3xl"></div>
+                <p class="mt-8 text-zinc-600">Tender Japanese Wagyu slow-cooked for 12 hours in our secret Lucknowi butter gravy with 22 aromatic spices. Finished with edible gold leaf and served with saffron-infused basmati rice and mint raita.</p>
+                <div class="grid grid-cols-2 gap-8 mt-10">
+                    <div>
+                        <div class="font-medium">Ingredients</div>
+                        <ul class="text-sm mt-3 space-y-1 text-zinc-500">
+                            <li>• A5 Japanese Wagyu</li>
+                            <li>• 22 Awadhi spices</li>
+                            <li>• Saffron rice</li>
+                            <li>• Edible gold leaf</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <div class="font-medium">Pairing Suggestion</div>
+                        <p class="text-sm text-zinc-500">2018 Barolo or our house mango-chilli margarita</p>
+                        <div class="text-4xl font-semibold text-[#0f766e] mt-8">₹2,490</div>
+                    </div>
+                </div>
+                `
+            } else if (id === 2) {
+                html = `
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="heading-font text-4xl">Truffle Butter Naan</h3>
+                    </div>
+                    <button onclick="hideDishModal()" class="text-4xl leading-none text-zinc-400 hover:text-black">×</button>
+                </div>
+                <div class="mt-8 bg-[url('https://picsum.photos/id/292/800/600')] bg-cover h-72 rounded-3xl"></div>
+                <p class="mt-8 text-zinc-600">Handcrafted naan baked in our tandoor and brushed generously with aged Italian truffle butter. Finished with 24k gold dust for the ultimate luxury bite.</p>
+                <div class="text-4xl font-semibold text-[#0f766e] mt-8">₹890</div>
+                `
+            } else if (id === 3) {
+                html = `
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="heading-font text-4xl">Saffron Rose Panna Cotta</h3>
+                    </div>
+                    <button onclick="hideDishModal()" class="text-4xl leading-none text-zinc-400 hover:text-black">×</button>
+                </div>
+                <div class="mt-8 bg-[url('https://picsum.photos/id/870/800/600')] bg-cover h-72 rounded-3xl"></div>
+                <p class="mt-8 text-zinc-600">Silky Italian panna cotta infused with premium Kashmiri saffron and rose water. Garnished with pistachio crumble and edible silver leaf.</p>
+                <div class="text-4xl font-semibold text-[#0f766e] mt-8">₹690</div>
+                `
+            }
+            
+            content.innerHTML = html
+            modal.classList.remove('hidden')
+            modal.classList.add('flex')
+        }
+
+        function hideDishModal() {
+            const modal = document.getElementById('dish-modal')
+            modal.classList.add('hidden')
+            modal.classList.remove('flex')
+        }
+
+        function showReservationModal() {
+            const modal = document.getElementById('reserve-modal')
+            modal.classList.remove('hidden')
+            modal.classList.add('flex')
+        }
+
+        function hideReservationModal() {
+            const modal = document.getElementById('reserve-modal')
+            modal.classList.add('hidden')
+            modal.classList.remove('flex')
+        }
+
+        function submitFakeReservation(e) {
+            e.preventDefault()
+            const btn = e.target.querySelector('button')
+            btn.innerHTML = `✅ Table Confirmed!`
+            setTimeout(() => {
+                hideReservationModal()
+                alert("🎉 Your reservation for 2 guests at 8:00 PM is confirmed!\n\nConfirmation sent via SMS & Email.")
+            }, 1200)
+        }
+
+        // Tailwind ready
+        console.log('%c🍽️ D-Mappers Premium Restaurant Site • New teal & gold luxury colour scheme • Full sections for Chef, Signature Dish, Weekend Offers, Dish Details modals & more • Developed by Stark', 'color:#0f766e; font-family:monospace')
+    </script>
+</body>
+</html>
